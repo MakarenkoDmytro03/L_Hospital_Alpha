@@ -13,7 +13,8 @@ An atmospheric, first-person psychological horror vertical slice built from scra
 The level map is systematically divided into 5 distinct architectural and atmospheric zones, meticulously organized within the UE World Outliner into isolated folder structures (`Archive`, `Lighting`, `Quadroom`, `Restroom`, `Reception`) for seamless source control merging.
 
 ### World Outliner Hierarchy
-![Outliner Setup](outliner.png)
+
+![Outliner Setup](outliner.png)  
 *Figure 1: Clean layer isolation in World Outliner for source control stability and asset organization.*
 
 ---
@@ -24,30 +25,35 @@ Each room followed a strict level design pipeline: starting from collision-verif
 
 #### 1. Prologue (Reception / Quarantine)
 > The starting zone featuring a sparse "crossroads" layout. Controls conditional progression gates (locked left/right doors).
+
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Reception Blockout](receptionblock.png) | ![Reception Final](reception1.png) |
 
 #### 2. Radio Room (Coastal Sea Panorama)
 > A sterile, lighthouse-style sector with heavy ocean media texture rendering bound to dynamic pause/play occlusion volumes.
+
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Radio Room Blockout](radioroonblock.png) | ![Radio Room Final](radioroom1.png) |
 
 #### 3. Technical Node (Red Collector Zone)
 > Industrial zone containing low-hanging structural metal beams used specifically for overhead Capsule Collision & LineTrace testing.
+
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Technical Node Blockout](techroomblock1.png) | ![Technical Node Final](techroom1.png) |
 
 #### 4. Archive & Storage Room
 > Labyrinthine geometry designed for navigation trapping tests and platforming (box climbing mechanics).
+
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Archive Blockout](archiveblock1.png) | ![Archive Final](archive1.png) |
 
 #### 5. Observation Room
 > High-suspense final room housing interactive quest evaluation interfaces and critical scripting triggers.
+
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Observation Blockout](obsessionroomblock.png) | ![Observation Final](obsessionroom1.png) |
