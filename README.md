@@ -67,6 +67,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 ### 1. Advanced Character Controller & Collision Integrity
 * **Adaptive Overhead-Aware Crouching:** Implemented a real-time `LineTraceByChannel` scanning vertically from the player's skull. If an obstacle (e.g., a low-hanging girder) is detected while the player crouches, the system clamps the capsule component deformation, physically preventing the character from standing up and clipping into geometry.
 * **Navigation Trapping Verification:** Engineered layout segments requiring box climbing mechanics to enter alternative access holes, testing standard capsule collision responses against dynamic prop physics.
+* **Primitive Collision Optimization:** Enforced simple primitive collision bounds (strictly Box, Sphere, or Capsule primitives) across all environment assets instead of complex mesh collisions, preventing player clipping and reducing CPU physics overhead during line trace evaluations.
 
 ### 2. Dynamic Surface-Type Audio Engine (`LineTrace` Driven)
 * Optimized surface footstep reproduction using real-time floor scanning via downward vertical line traces.
