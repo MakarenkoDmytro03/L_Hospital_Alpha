@@ -76,7 +76,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 
 ### 3. Smart Resource Management & Render Optimization
 * **Eco-Friendly Media Textures:** Heavy looping video textures simulating the ocean storm outside panoramic window frames are bound to localized volume triggers (`Box Collision`). Entering the sector triggers `Open Source`; exiting immediately triggers `Pause` to offload GPU/RAM usage when occluded.
-* **Lightweight Volumetric Shaders:** Created a moving outdoor fog system utilizing standard material math. A slow `Panner` shifts coordinate domains of a 2D `Perlin Noise Mask` fed into the material's `Emissive Color` vector under DirectX 12/SM6 profiles with practically zero rendering cost.
+* **Optimized Emissive & Dynamic Panner Shaders:** Engineered lightweight Substrate materials (`M_FogVolume`) driving both atmospheric fog planes and stained-glass window light emission. Utilized UV `Panner` nodes shifting texture sample masks into `Opacity Override` and `Emissive Color` channels, mimicking dynamic volumetric rays and moving mist with near-zero GPU instruction overhead.
 * **Acoustic Bounds Layout:** Replaced resource-heavy environmental audio reverb volumes with custom-tailored static sound occlusion boundaries with strict 1-second delay gates.
 
 ### 4. Interactive Object-Oriented Inventory & World Triggers
