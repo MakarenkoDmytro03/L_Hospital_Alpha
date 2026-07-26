@@ -71,17 +71,16 @@ Each room followed a strict level design pipeline: starting from collision-verif
 * **Primitive Collision Optimization:** Enforced simple primitive collision bounds (strictly Box, Sphere, or Capsule primitives) across all environment assets instead of complex mesh collisions, preventing player clipping and reducing CPU physics overhead during line trace evaluations.
 
 ### 2. Dynamic Surface-Type Audio Engine (`LineTrace` Driven)
-* Optimized surface footstep reproduction using real-time floor scanning via downward vertical line traces.
-* The system fetches the hit result's specific `Physical Material`, matching it through a modular `Switch on EPhysicalSurface` logic to dynamically substitute audio emitters based on 4 concrete physical archetypes (Wood, Concrete, Tile, Iron).
+* **Modular Surface-Recognition Audio Engine:** Optimized footstep and impact audio playback using vertical downward line-traces. Fetches hit `Physical Materials` (Wood, Metal, Concrete, Tile) to execute a randomized audio emitter node with tailored delay gates and normalized 1-second audio clip truncations, maintaining performance and audio variety.
 
 ### 3. Smart Resource Management & Render Optimization
 * **Eco-Friendly Media Textures:** Heavy looping video textures simulating the ocean storm outside panoramic window frames are bound to localized volume triggers (`Box Collision`). Entering the sector triggers `Open Source`; exiting immediately triggers `Pause` to offload GPU/RAM usage when occluded.
 * **Optimized Emissive & Dynamic Panner Shaders:** Engineered lightweight Substrate materials (`M_FogVolume`) driving both atmospheric fog planes and stained-glass window light emission. Utilized UV `Panner` nodes shifting texture sample masks into `Opacity Override` and `Emissive Color` channels, mimicking dynamic volumetric rays and moving mist with near-zero GPU instruction overhead.
-* **Acoustic Bounds Layout:** Replaced resource-heavy environmental audio reverb volumes with custom-tailored static sound occlusion boundaries with strict 1-second delay gates.
 
-### 4. Interactive Object-Oriented Inventory & World Triggers
-* Deployed standard OOP principles via a master parent class (`BP_Master_Interactable`) controlling sub-child assets (`BP_Hospital_Door`, inspectable notes, bell interaction objects).
-* Conditional flow gates verify ownership of distinct key assets within the inventory array. Upon interaction, dynamic `Timeline` components smoothly drive local `Yaw` rotation transforms along fixed trajectories, triggering deterministic sound occlusion cues.
+### 4. Interactive Object-Oriented Inventory & Keypad Logic
+* **Interactive Object-Oriented Framework:** Deployed standard OOP principles via a master parent class (`BP_Master_Interactable`) controlling sub-child actors (`BP_Hospital_Door`, inspectable notes, keypad locks).
+* **State-Based Key Verification:** Implemented deterministic `Boolean` state gates on doors to evaluate specific key collection triggers on the player character prior to executing smooth `Timeline` `Yaw` rotation transforms.
+* **Numeric Keypad Lock Architecture:** Engineered a Keypad interface evaluating dynamic runtime string inputs against predefined secret code variables, triggering conditional branch checks to open locked barriers upon successful match.
 
 ### 5. Custom QA Test Automation / Cheat DevTools
 * Designed an embedded in-engine tester menu mapped to designated hotkeys to streamline regression testing and boundary verification:
