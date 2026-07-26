@@ -45,7 +45,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 | ![Technical Node Blockout](techroomblock1.png) | ![Technical Node Final](techroom1.png) |
 
 #### 4. Archive & Storage Room
-> Labyrinthine geometry designed for navigation trapping tests and platforming (box climbing mechanics).
+> Labyrinthine geometry designed for navigation trapping tests and platforming mechanics.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
@@ -67,7 +67,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 
 ### 1. Advanced Character Controller & Collision Integrity
 * **Adaptive Overhead-Aware Crouching:** Implemented a real-time `LineTraceByChannel` scanning vertically from the player's skull. If an obstacle (e.g., a low-hanging girder) is detected while the player crouches, the system clamps the capsule component deformation, physically preventing the character from standing up and clipping into geometry.
-* **Navigation Trapping Verification:** Engineered layout segments requiring box climbing mechanics to enter alternative access holes, testing standard capsule collision responses against dynamic prop physics.
+* **Navigation Trapping Verification:** Engineered layout segments requiring platforming jumps to bypass wall barriers, testing standard capsule collision responses and character traversal bounds against static environment meshes.
 * **Primitive Collision Optimization:** Enforced simple primitive collision bounds (strictly Box, Sphere, or Capsule primitives) across all environment assets instead of complex mesh collisions, preventing player clipping and reducing CPU physics overhead during line trace evaluations.
 
 ### 2. Dynamic Surface-Type Audio Engine (`LineTrace` Driven)
@@ -81,7 +81,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 
 ### 4. Interactive Object-Oriented Inventory & World Triggers
 * Deployed standard OOP principles via a master parent class (`BP_Master_Interactable`) controlling sub-child assets (`BP_Hospital_Door`, inspectable notes, bell interaction objects).
-* Conditional flow gates verify ownership of distinct key assets. Vector mathematics (`Dot Product`) calculate player position relative to door transforms, adapting rotation trajectories away from the player's moving direction.
+* Conditional flow gates verify ownership of distinct key assets within the inventory array. Upon interaction, dynamic `Timeline` components smoothly drive local `Yaw` rotation transforms along fixed trajectories, triggering deterministic sound occlusion cues.
 
 ### 5. Custom QA Test Automation / Cheat DevTools
 * Designed an embedded in-engine tester menu mapped to designated hotkeys to streamline regression testing and boundary verification:
