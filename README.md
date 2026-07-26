@@ -50,6 +50,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Archive Blockout](archiveblock1.png) | ![Archive Final](archive1.png) |
+| ![Archive Blockout 2](archiveblock2.png) | ![Archive Final 2](archive2.png) |
 
 #### 5. Observation Room
 > High-suspense final room housing interactive quest evaluation interfaces and critical scripting triggers.
