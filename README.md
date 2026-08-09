@@ -77,10 +77,10 @@ Each room followed a strict level design pipeline: starting from collision-verif
 * **Eco-Friendly Media Textures:** Heavy looping video textures simulating the ocean storm outside panoramic window frames are bound to localized volume triggers (`Box Collision`). Entering the sector triggers `Open Source`; exiting immediately triggers `Pause` to offload GPU/RAM usage when occluded.
 * **Optimized Emissive & Dynamic Panner Shaders:** Engineered lightweight Substrate materials (`M_FogVolume`) driving both atmospheric fog planes and stained-glass window light emission. Utilized UV `Panner` nodes shifting texture sample masks into `Opacity Override` and `Emissive Color` channels, mimicking dynamic volumetric rays and moving mist with near-zero GPU instruction overhead.
 
-### 4. Interactive Object-Oriented Inventory & Keypad Logic
+### 4. Interactive Object-Oriented Framework & Keypad Logic
 * **Interactive Object-Oriented Framework:** Deployed standard OOP principles via a master parent class (`BP_Master_Interactable`) controlling sub-child actors (`BP_Hospital_Door`, inspectable notes, keypad locks).
-* **State-Based Key Verification:** Implemented deterministic `Boolean` state gates on doors to evaluate specific key collection triggers on the player character prior to executing smooth `Timeline` `Yaw` rotation transforms.
-* **Numeric Keypad Lock Architecture:** Engineered a Keypad interface evaluating dynamic runtime string inputs against predefined secret code variables, triggering conditional branch checks to open locked barriers upon successful match.
+* **Interface-Driven Interaction System:** Integrated a decoupled Blueprint Interface (`BPI_Interaction`) for readable notes (`BP_HospitalNote`), passing raw text parameters directly to `WBP_Note_Screen_Widget` without hard character casting.
+* **Numeric Keypad & Passcode Lock Logic:** Engineered a Keypad interface evaluating dynamic runtime string inputs against predefined passcode variables, executing conditional branch gates to unlock access barriers upon a correct match.
 
 ### 5. Custom QA Test Automation / Cheat DevTools
 * Designed an embedded in-engine tester menu mapped to designated hotkeys to streamline regression testing and boundary verification:
@@ -105,30 +105,30 @@ Below are real technical bug reports encountered, cataloged, and resolved during
 * **Component:** Gameplay Logic / Audio Triggers
 * **Severity:** Low | **Priority:** High
 * **Title:** Jumpscare audio event triggers multiple times upon repeated Box Collision overlap.
-* **Description:** The structural iron-knocking scary audio event re-executes every single time a player moves across the trigger volume, provided the player maintains Key #2 inside their active inventory data.
-* **Root Cause:** The execution pathway lacked an explicit execution latching gate. Because the evaluation check for the inventory item constantly passed true, the event boundary fired infinitely.
-* **Resolution:** Integrated a strict `Do Once` node immediately following the conditional inventory array branch, permanently closing the activation line after the initial successful overlap.
+* **Description:** The structural iron-knocking scary audio event re-executes every single time a player moves across the trigger volume, provided the player maintains Key #2 state on their character.
+* **Root Cause:** The execution pathway lacked an explicit execution latching gate. Because the evaluation check for the room key variable constantly passed true, the overlap event boundary fired repeatedly.
+* **Resolution:** Integrated a strict `Do Once` node immediately following the conditional key variable branch, permanently closing the activation line after the initial successful overlap.
 
 ### Bug ID: LE-003 | Math Transforms & Animation
 * **Component:** Interactive Actors (Doors)
 * **Severity:** Medium | **Priority:** High
-* **Title:** Double-wing door assets open in identical directional vectors, clipping through geometry.
-* **Description:** Activating double-wing doors forces both separate meshes to rotate on an identical positive Y-Axis transform. This causes the right-hand wing component to clip directly into structural level meshes.
-* **Root Cause:** Symmetrical assets were sharing an unmodified timeline float track without spatial compensation.
-* **Resolution:** In the child blueprint class designated for double-wing doors, separated the transform logic. Multiplied the target float track driving the `Yaw` relative rotation parameter of the right door wing component by `-1` to cleanly mirror the animation path.
+* **Title:** Double-wing door assets open in identical rotational vectors, causing wall/player clipping.
+* **Description:** Activating double-wing doors applies an identical positive `Yaw` value from the Timeline to both door meshes. As a result, the right wing opens correctly away from the player, while the left wing rotates into the player capsule and clips into adjacent wall geometry.
+* **Root Cause:** Symmetrical door wing components shared an unmodified positive Timeline float value without accounting for local transform mirror polarity.
+* **Resolution:** In the double-door Blueprint logic, separated the rotational transforms. Multiplied the target `Yaw` float value by `-1` specifically for the left door wing component, ensuring both wings cleanly swing in the same unified direction (away from the player).
 
 ### Bug ID: LE-004 | Object References & Interfaces
 * **Component:** Interaction Framework
 * **Severity:** High | **Priority:** High
-* **Title:** Environmental actors fail to evaluate inventory arrays due to direct dependency breaks.
-* **Description:** Quest doors fail to register player item checks. The log outputs null-pointer warnings because the actor attempts to pull data fields directly from a generic overlapping reference.
-* **Root Cause:** Attempting direct casting (`Cast To Character`) on unexpected objects, creating fragile hard references that collapse if communication flows get interrupted.
-* **Resolution:** Refactored the architecture to run over a dedicated **Blueprint Interface**. The interactive door sends an interface query to the actor entity triggering the overlap, cleanly fetching array data fields through polymorphic interface messages without hard dependencies.
+* **Title:** Direct Blueprint casting in readable notes creates tight coupling and breaks UI input mode logic.
+* **Description:** Attempting to open readable notes (`BP_HospitalNote`) directly cast to `BP_FirstPersonCharacter` to pause character inputs and spawn `WBP_Note_Screen_Widget`. This approach caused null-pointer warnings, fragile hard dependencies, and unstable mouse cursor focus states (`Game and UI` mode lockup).
+* **Root Cause:** Direct character casting created unnecessary hard object dependencies and coupled independent UI presentation logic with character execution flows.
+* **Resolution:** Refactored the interactable note logic to communicate strictly via a Blueprint Interface (`BPI_Interaction`). Interacting with a note fires an interface message to push raw text/texture parameters to `WBP_Note_Screen_Widget`, decoupling UI focus execution from hard character dependencies.
 
 ### Bug ID: LE-005 | Physics Simulation vs Deterministic Design (Architecture Flaw)
 * **Component:** Physics / Collision Constraints
 * **Severity:** High | **Priority:** High
-* **Title:** Physics-driven doors cause extreme capsule clipping and player clipping bugs.
+* **Title:** Physics-driven doors cause extreme capsule clipping and player collision instability.
 * **Description:** Utilizing skeletal forces and physics boundaries on door frames resulted in erratic object jittering. Sprinting or crouching while interacting frequently broke character navigation bounds, trapping the capsule in adjacent walls. Sound cues also failed due to volatile physics sleep states.
 * **Root Cause:** Physics solver instability under high-velocity character collision intersections.
 * **Resolution:** **Architectural Decision:** Deprecated physics simulation weights entirely for mechanical level barriers. Re-engineered the system to rely on stable, deterministic design paradigms: a precise box trigger registers interface inputs, and a predictable `Timeline` node explicitly shifts local rotation vectors, ensuring total stability and reliable audio end-state hooks.
