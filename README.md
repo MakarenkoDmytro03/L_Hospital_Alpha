@@ -78,7 +78,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 * **Optimized Emissive & Dynamic Panner Shaders:** Engineered lightweight Substrate materials (`M_FogVolume`) driving both atmospheric fog planes and stained-glass window light emission. Utilized UV `Panner` nodes shifting texture sample masks into `Opacity Override` and `Emissive Color` channels, mimicking dynamic volumetric rays and moving mist with near-zero GPU instruction overhead.
 
 ### 4. Interactive Object-Oriented Framework & Keypad Logic
-* **Interactive Object-Oriented Framework:** Deployed standard OOP principles via a master parent class (`BP_Master_Interactable`) controlling sub-child actors (`BP_Hospital_Door`, inspectable notes, keypad locks).
+* **Interactive Object-Oriented Framework:** Deployed standard OOP principles via a master parent class (`BP_Master_Interactable`) combined with Blueprint Interfaces (`BPI_Interaction`) to drive decoupled interaction flows across sub-child actors (`BP_Hospital_Door`, inspectable notes, keypad locks).
 * **Interface-Driven Interaction System:** Integrated a decoupled Blueprint Interface (`BPI_Interaction`) for readable notes (`BP_HospitalNote`), passing raw text parameters directly to `WBP_Note_Screen_Widget` without hard character casting.
 * **Numeric Keypad & Passcode Lock Logic:** Engineered a Keypad interface evaluating dynamic runtime string inputs against predefined passcode variables, executing conditional branch gates to unlock access barriers upon a correct match.
 
@@ -105,7 +105,7 @@ Below are real technical bug reports encountered, cataloged, and resolved during
 * **Component:** Gameplay Logic / Audio Triggers
 * **Severity:** Low | **Priority:** High
 * **Title:** Jumpscare audio event triggers multiple times upon repeated Box Collision overlap.
-* **Description:** The structural iron-knocking scary audio event re-executes every single time a player moves across the trigger volume, provided the player maintains Key #2 state on their character.
+* **Description:** The structural iron-knocking scary audio event re-executes every single time a player moves across the trigger volume, provided the conditional state flag (Key #2 acquired) on the player character remains true.
 * **Root Cause:** The execution pathway lacked an explicit execution latching gate. Because the evaluation check for the room key variable constantly passed true, the overlap event boundary fired repeatedly.
 * **Resolution:** Integrated a strict `Do Once` node immediately following the conditional key variable branch, permanently closing the activation line after the initial successful overlap.
 
@@ -115,7 +115,7 @@ Below are real technical bug reports encountered, cataloged, and resolved during
 * **Title:** Double-wing door assets open in identical rotational vectors, causing wall/player clipping.
 * **Description:** Activating double-wing doors applies an identical positive `Yaw` value from the Timeline to both door meshes. As a result, the right wing opens correctly away from the player, while the left wing rotates into the player capsule and clips into adjacent wall geometry.
 * **Root Cause:** Symmetrical door wing components shared an unmodified positive Timeline float value without accounting for local transform mirror polarity.
-* **Resolution:** In the double-door Blueprint logic, separated the rotational transforms. Multiplied the target `Yaw` float value by `-1` specifically for the left door wing component, ensuring both wings cleanly swing in the same unified direction (away from the player).
+* **Resolution:** In the double-door Blueprint logic, separated the rotational transforms. Multiplied the target `Yaw` float value by `-1` specifically for the secondary door wing component, ensuring mirrored rotation so both wings open away from the player capsule seamlessly.
 
 ### Bug ID: LE-004 | Object References & Interfaces
 * **Component:** Interaction Framework
