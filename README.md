@@ -29,6 +29,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Reception Blockout](receptionblock.png) | ![Reception Final](reception1.png) |
+| | ![Reception Details](reception2.png) |
 
 #### 2. Radio Room (Coastal Sea Panorama)
 > A sterile, lighthouse-style sector with heavy ocean media texture rendering bound to dynamic pause/play occlusion volumes.
@@ -36,27 +37,31 @@ Each room followed a strict level design pipeline: starting from collision-verif
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Radio Room Blockout](radioroonblock.png) | ![Radio Room Final](radioroom1.png) |
+| | ![Radio Room Details](radioroom2.png) |
 
 #### 3. Technical Node (Red Collector Zone)
 > Industrial zone containing low-hanging structural metal beams used specifically for overhead Capsule Collision & LineTrace testing.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Technical Node Blockout](techroomblock1.png) | ![Technical Node Final](techroom1.png) |
+| ![Technical Node Blockout 1](techroomblock1.png) | ![Technical Node Final 1](techroom1.png) |
+| ![Technical Node Blockout 2](techroomblock2.png) | ![Technical Node Final 2](techroom2.png) |
 
 #### 4. Archive & Storage Room
 > Labyrinthine geometry designed for navigation trapping tests and platforming layout validation.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Archive Blockout](archiveblock1.png) | ![Archive Final](archive1.png) |
+| ![Archive Blockout 1](archiveblock1.png) | ![Archive Final 1](archive1.png) |
+| ![Archive Blockout 2](archiveblock2.png) | ![Archive Final 2](archive2.png) |
 
 #### 5. Observation Room
 > High-suspense final room housing interactive quest evaluation interfaces and critical scripting triggers.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Observation Blockout](obsessionroomblock.png) | ![Observation Final](obsessionroom1.png) |
+| ![Observation Blockout 1](obsessionroomblock.png) | ![Observation Final 1](obsessionroom1.png) |
+| ![Observation Blockout 2](obsessionroomblock2.png) | ![Observation Final 2](obsessionroom2.png) |
 
 ---
 
