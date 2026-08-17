@@ -38,14 +38,14 @@ Each room followed a strict level design pipeline: starting from collision-verif
 | ![Radio Room Blockout](radioroonblock.png) | ![Radio Room Final](radioroom1.png) |
 
 #### 3. Technical Node (Red Collector Zone)
-> Industrial zone containing low-hanging structural metal beams used specifically for overhead Capsule Collision & LineTrace testing.
+> Industrial transition corridor housing interactive doors and ambient sound triggers, focused on high-density environmental storytelling.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
 | ![Technical Node Blockout](techroomblock1.png) | ![Technical Node Final](techroom1.png) |
 
 #### 4. Archive & Storage Room
-> Labyrinthine geometry designed for navigation trapping tests and platforming mechanics.
+> Labyrinthine geometry designed for navigation trapping tests, tight-space platforming, and overhead structural collision verification (LineTrace skull-scanning during crouching).
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
@@ -53,7 +53,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 | ![Archive Blockout 2](archiveblock2.png) | ![Archive Final 2](archive2.png) |
 
 #### 5. Observation Room
-> High-suspense final room housing interactive quest evaluation interfaces and critical scripting triggers.
+> High-suspense final room featuring a mini-environmental puzzle: climbing prop boxes to access key inventory items and unlocking the final exit door.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
@@ -66,8 +66,8 @@ Each room followed a strict level design pipeline: starting from collision-verif
 *(Note: All systems, blueprint logic graphs, line-traces, and interface communications are fully demonstrated in the showreel video).*
 
 ### 1. Advanced Character Controller & Collision Integrity
-* **Adaptive Overhead-Aware Crouching:** Implemented a real-time `LineTraceByChannel` scanning vertically from the player's skull. If an obstacle (e.g., a low-hanging girder) is detected while the player crouches, the system clamps the capsule component deformation, physically preventing the character from standing up and clipping into geometry.
-* **Navigation Trapping Verification:** Engineered layout segments requiring platforming jumps to bypass wall barriers, testing standard capsule collision responses and character traversal bounds against static environment meshes.
+* **Adaptive Overhead-Aware Crouching:** Implemented a real-time `LineTraceByChannel` scanning vertically from the player's skull. If an obstacle (e.g., low-hanging shelves or structural beams in Archive) is detected while the player crouches, the system clamps the capsule component deformation, physically preventing the character from standing up and clipping into geometry.
+* **Navigation Trapping Verification:** Engineered layout segments requiring platforming jumps across prop boxes to bypass barriers, testing standard capsule collision responses and character traversal bounds against static environment meshes.
 * **Primitive Collision Optimization:** Enforced simple primitive collision bounds (strictly Box, Sphere, or Capsule primitives) across all environment assets instead of complex mesh collisions, preventing player clipping and reducing CPU physics overhead during line trace evaluations.
 
 ### 2. Dynamic Surface-Type Audio Engine (`LineTrace` Driven)
