@@ -14,7 +14,7 @@ The level map is systematically divided into 5 distinct architectural and atmosp
 
 ### World Outliner Hierarchy
 
-![Outliner Setup](outliner.png)  
+![Outliner Setup](Screenshots/outliner.png)  
 *Figure 1: Clean layer isolation in World Outliner for source control stability and asset organization.*
 
 ---
@@ -28,36 +28,36 @@ Each room followed a strict level design pipeline: starting from collision-verif
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Reception Blockout](receptionblock.png) | ![Reception Final](reception1.png) |
+| ![Reception Blockout](Screenshots/receptionblock.png) | ![Reception Final](Screenshots/reception1.png) |
 
 #### 2. Radio Room (Coastal Sea Panorama)
 > A sterile, lighthouse-style sector with heavy ocean media texture rendering bound to dynamic pause/play occlusion volumes.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Radio Room Blockout](radioroonblock.png) | ![Radio Room Final](radioroom1.png) |
+| ![Radio Room Blockout](Screenshots/radioroonblock.png) | ![Radio Room Final](Screenshots/radioroom1.png) |
 
 #### 3. Technical Node (Red Collector Zone)
 > Industrial transition corridor housing interactive doors and ambient sound triggers, focused on high-density environmental storytelling.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Technical Node Blockout](techroomblock1.png) | ![Technical Node Final](techroom1.png) |
+| ![Technical Node Blockout](Screenshots/techroomblock1.png) | ![Technical Node Final](Screenshots/techroom1.png) |
 
 #### 4. Archive & Storage Room
 > Labyrinthine geometry designed for navigation trapping tests, tight-space platforming, and overhead structural collision verification (LineTrace skull-scanning during crouching).
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Archive Blockout](archiveblock1.png) | ![Archive Final](archive1.png) |
-| ![Archive Blockout 2](archiveblock2.png) | ![Archive Final 2](archive2.png) |
+| ![Archive Blockout](Screenshots/archiveblock1.png) | ![Archive Final](Screenshots/archive1.png) |
+| ![Archive Blockout 2](Screenshots/archiveblock2.png) | ![Archive Final 2](Screenshots/archive2.png) |
 
 #### 5. Observation Room
 > High-suspense final room featuring a mini-environmental puzzle: climbing prop boxes to access key inventory items and unlocking the final exit door.
 
 | Blockout / Spatial Test | Final Environment & Lighting |
 | :---: | :---: |
-| ![Observation Blockout](obsessionroomblock.png) | ![Observation Final](obsessionroom1.png) |
+| ![Observation Blockout](Screenshots/obsessionroomblock.png) | ![Observation Final](Screenshots/obsessionroom1.png) |
 
 ---
 
