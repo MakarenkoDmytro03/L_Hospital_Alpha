@@ -135,6 +135,28 @@ Below are real technical bug reports encountered, cataloged, and resolved during
 
 ---
 
+## 🖼️ Additional Spatial Iterations & Unused Level Concepts
+
+The following gallery documents secondary angles, alternative lighting scenarios, and supplementary blockout/final passes that were created during the spatial iteration process for `L_Hospital_Alpha`:
+
+### 1. Reception & Quarantine Sector
+| Extra Spatial Angle | Additional Lighting Test |
+| :---: | :---: |
+| ![Reception Extra 1](Screenshots/reception2.png) | ![Reception Extra 2](Screenshots/reception3.png) |
+
+### 2. Technical Node & Corridor Expansion
+| Alternative Lighting Angle | Deep Node Details |
+| :---: | :---: |
+| ![Tech Room Extra 1](Screenshots/techroom2.png) | ![Tech Room Extra 2](Screenshots/techroom3.png) |
+| ![Tech Room Blockout 2](Screenshots/techroomblock2.png) | ![Tech Room Blockout 3](Screenshots/techroomblock3.png) |
+
+### 3. Transition Hub & Quadroom
+| Quadroom Spatial Blockout | Quadroom Final Lighting |
+| :---: | :---: |
+| ![Quadroom Blockout](Screenshots/quadroomblock.png) | ![Quadroom Final](Screenshots/quadroom1.png) |
+
+---
+
 ## 🔗 Project Links & Contacts
 
 * **Gameplay & Blueprints Showreel:** [Watch Video on Google Drive][SHOWREEL_LINK]
