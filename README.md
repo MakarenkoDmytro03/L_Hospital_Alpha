@@ -82,7 +82,7 @@ Each room followed a strict level design pipeline: starting from collision-verif
 * **Interface-Driven Interaction System:** Integrated a decoupled Blueprint Interface (`BPI_Interaction`) for readable notes (`BP_HospitalNote`), passing raw text parameters directly to `WBP_Note_Screen_Widget` without hard character casting.
 * **Numeric Keypad & Passcode Lock Logic:** Engineered a Keypad interface evaluating dynamic runtime string inputs against predefined passcode variables, executing conditional branch gates to unlock access barriers upon a correct match.
 
-### 5. Custom QA Test Automation / Cheat DevTools
+### 5. Custom QA debug/regression utility / Cheat DevTools
 * Designed an embedded in-engine tester menu mapped to designated hotkeys to streamline regression testing and boundary verification:
   * Keys `[1-8]`: Triggers immediate, deterministic location vectors, teleporting the player pawn directly to target coordinate points across the 5 sub-rooms.
   * Key `[R]`: Triggers a swift, hard map instance reload (`Restart Level`) to instantly clear memory states and run clean-slate passes.
